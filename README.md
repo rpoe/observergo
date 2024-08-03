@@ -1,4 +1,5 @@
 # observergo
 An implementation of the observer pattern in go.
-It is based on the concept of multiple users accessing one data object.
 
+We need the observer pattern in situations where we have one data object 
+being used by multiple users at the same time.
