@@ -1,0 +1,121 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
+  <diagram name="Seite-1" id="hGujrEDdPcLF7c3odhgW">
+    <mxGraphModel dx="1380" dy="963" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-1" value="User 1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="60" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-4" value="User 2" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="190" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-8" value="User 3" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="320" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-9" value="System" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-11" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-9" target="0Zdsd0JjH8zJ_Ib5YjdM-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="380" as="sourcePoint" />
+            <mxPoint x="220" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-12" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-9" target="0Zdsd0JjH8zJ_Ib5YjdM-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="380" as="sourcePoint" />
+            <mxPoint x="380" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-13" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Context&lt;/h1&gt;&lt;div&gt;We have a system with 3 example users.&lt;/div&gt;&lt;div&gt;One user is only observing the system.&lt;/div&gt;&lt;div&gt;The other users observe the system and provide input.&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-18" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-9" target="0Zdsd0JjH8zJ_Ib5YjdM-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="170" as="sourcePoint" />
+            <mxPoint x="190" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-19" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Data Flow&lt;/h1&gt;&lt;div&gt;The user send events and observe the state of the system. Each user uses his own view.&lt;/div&gt;&lt;div&gt;Users are external to the system. The program is providing separate views for each user.&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="479" y="400" width="270" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-20" value="User 1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="460" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-21" value="User 2" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="79" y="590" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-22" value="User 3" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="720" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-23" value="Program" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="393" y="580" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-27" value="View 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="219" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-29" value="View 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="159" y="590" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-30" value="View 3" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="209" y="720" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-31" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-23" target="0Zdsd0JjH8zJ_Ib5YjdM-27">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="279" y="740" as="sourcePoint" />
+            <mxPoint x="329" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-32" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-27">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="279" y="740" as="sourcePoint" />
+            <mxPoint x="169" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-33" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-29" target="0Zdsd0JjH8zJ_Ib5YjdM-23">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="279" y="740" as="sourcePoint" />
+            <mxPoint x="329" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-34" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-21" target="0Zdsd0JjH8zJ_Ib5YjdM-29">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="279" y="740" as="sourcePoint" />
+            <mxPoint x="329" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-35" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-22" target="0Zdsd0JjH8zJ_Ib5YjdM-30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="279" y="740" as="sourcePoint" />
+            <mxPoint x="329" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-36" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-30" target="0Zdsd0JjH8zJ_Ib5YjdM-23">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="279" y="740" as="sourcePoint" />
+            <mxPoint x="329" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-37" value="State" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="589" y="590" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-38" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0Zdsd0JjH8zJ_Ib5YjdM-23" target="0Zdsd0JjH8zJ_Ib5YjdM-37">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="539" y="610" as="sourcePoint" />
+            <mxPoint x="419" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-39" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;System Consistency Requirements&lt;/h1&gt;&lt;div&gt;- At any point in time the system has only 1 state. The system must maintain the integrity of the state.&amp;nbsp;&lt;/div&gt;&lt;div&gt;- At a point in time the system needs to present the same state to all users.&lt;/div&gt;&lt;div&gt;- Any user can raise an event at any point in time. Events may trigger the system to change the state.&lt;/div&gt;&lt;div&gt;- No 2 events arrive at the program at the same time.&amp;nbsp;&lt;/div&gt;&lt;div&gt;- The sequence of arrival must be obeyed. It defines the change of the state.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;These reqirements are valid&lt;/b&gt;&lt;b style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;at all times for all systems.&lt;/b&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="820" width="615" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-40" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;System Change Requirements&lt;/h1&gt;&lt;div&gt;1. The number and type of user may change. This affects the number of views.&lt;/div&gt;&lt;div&gt;2. Content of view and content of event may change. This affects the content of the views and maybe the content of the state.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;The system must be only minimal affected by these changing requirements.&lt;/b&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="990" width="690" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="0Zdsd0JjH8zJ_Ib5YjdM-41" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;br&gt;&lt;/h1&gt;&lt;div&gt;Ralf Poeppel, 2024-08-04&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="620" y="1070" width="180" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
