@@ -7,7 +7,7 @@
 // the updated subject to the registered viewHandlers
 // Example makes use of go routines and channels
 //
-// Ralf Poeppel 2023-12-23
+// Ralf Poeppel 2024-08-06 (Never forget Hiroshima)
 
 package main
 
@@ -18,8 +18,10 @@ import (
 
 const TimeMilli = "15:04:05.999999" // zero time in golang used as format
 
-// ----------------------------------------------------------------------------
+// ============================================================================
 // The one an only State
+//
+// This is the one and only one object where ALL data of the system resides.
 // ----------------------------------------------------------------------------
 
 // state a sample subject having a state with a name and the name of the view and time
@@ -35,10 +37,9 @@ func (s state) String() string {
 	return s.name + "," + s.view + " " + s.vtype + ", " + s.tims.Format(TimeMilli)
 }
 
+// ============================================================================
+// notifiable and stateUpdate define the interface used by the ChangeManager
 // ----------------------------------------------------------------------------
-// Notifiable each ViewHandler register a Notifiable
-// ----------------------------------------------------------------------------
-
 // notifiable each ViewHandler registers with the ChangeManager
 type notifiable struct {
 	vname string     // name of the view handler
@@ -54,8 +55,9 @@ type stateUpdater interface {
 	Update(s *state) // update the state for this event
 }
 
-// ----------------------------------------------------------------------------
-// ViewHandler Log
+// ============================================================================
+// ViewHandler, a ViewHandler may define a specific event for input data
+// from its view.
 // ----------------------------------------------------------------------------
 
 // ViewHandlerLog a function running ViewHandlerLog.
@@ -80,6 +82,13 @@ func ViewHandlerLog(creg chan<- notifiable, cend <-chan bool) {
 	}
 }
 
+// ============================================================================
+// 
+// Event Tick and ViewHandlerTick
+//
+// ViewHandler creates Tick Events and sends them to the ChangeManager
+// ----------------------------------------------------------------------------
+
 // ----------------------------------------------------------------------------
 // Event Tick
 // ----------------------------------------------------------------------------
@@ -95,6 +104,8 @@ func (e eventTick) String() string {
 	return "eventTick:" + e.vname + ", " + e.vtime.Format(TimeMilli)
 }
 
+// Update will be called by the ChangeManager for the processing of 
+// an event of type Tick
 func (e eventTick) Update(s *state) {
 	s.view = e.vname
 	s.tims = e.vtime
@@ -131,6 +142,7 @@ func ViewHandlerTick(name string, count int, delta time.Duration,
 			i++
 			fmt.Println("\n"+name+" Tick", i,
 				"   ", t.Format(TimeMilli))
+            // send a view specific event to the event chan of the ChangeManager
 			cevt <- eventTick{name, t}
 		}
 	}
@@ -183,7 +195,9 @@ func ChangeManager(cviewend chan<- bool) (chan<- notifiable, chan<- stateUpdater
 	return creg, cevt
 }
 
-// main managing, ChangeManager and VieHandlers
+// ----------------------------------------------------------------------------
+
+// main managing, ChangeManager and ViewHandlers
 func main() {
 	countOfViewHandlers := 3
 	// we need a buffered chan with capacity of count of ViewHandlers
@@ -191,15 +205,18 @@ func main() {
 	cend := make(chan bool)                          // chan to stop log a ViewHandler not stopping by itself
 	// create ChangeManager
 	creg, cevt := ChangeManager(cviewend)
+
 	// kick of 3 view handlers
 	go ViewHandlerLog(creg, cend)
 	time.Sleep(13 * time.Millisecond) // wait to have different start time
 	go ViewHandlerTick("     v2", 5, 5*time.Millisecond, creg, cevt)
+    countViewHandlerTick := 1  // Bookkeeping of started ViewHandler, ending by themselves
 	time.Sleep(3 * time.Millisecond) // wait to have different start time
 	go ViewHandlerTick("     v3", 7, 3*time.Millisecond, creg, cevt)
+    countViewHandlerTick++
 
 	// if all active views are closed program should end
-	for i := 1; i <= 2; { // wait for 2 ViewHandlerTick
+	for i := 1; i <= countViewHandlerTick; { // wait for ViewHandlerTick
 		select {
 		case <-cviewend:
 			i++
@@ -207,10 +224,12 @@ func main() {
 		}
 	}
 	fmt.Println("All ViewHandlerTick have ended")
+
 	// stop ViewHandlerLog
 	cend <- true
 	// wait for ViewHandlerLog end
 	<-cviewend
 	fmt.Println("Main received ViewHandlerLog end")
+
 	fmt.Println("main end", time.Now().Format(TimeMilli))
 }
