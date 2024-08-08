@@ -8,9 +8,9 @@
 // Example makes use of go routines and channels.
 //
 // Working of the example can be seen on stdout. You can filter with grep
-// for the different packages (Main, state, cm, Tick, Log).
+// for the different packages (main, state, cm, Tick, Log).
 //
-// Ralf Poeppel 2024-08-06 (Never forget Hiroshima 1945)
+// Ralf Poeppel 2024-08-08
 
 package main
 
@@ -27,21 +27,27 @@ const TimeMilli = "15:04:05.999999" // zero time in golang used as format
 
 // main managing, ChangeManager and ViewHandlers
 func main() {
-	fmt.Println("Main start", time.Now().Format(TimeMilli))
+	fmt.Println("main start", time.Now().Format(TimeMilli))
 
-	countOfViewHandlers := 3
 	// we need a buffered chan with capacity of count of ViewHandlers
-	cviewend := make(chan bool, countOfViewHandlers) // chan from ChangeManager to main telling end of View
-	cend := make(chan bool)                          // chan to stop log a ViewHandler not stopping by itself
+	countOfViewHandlers := 3
+	// chan from ChangeManager to main telling end of View
+	cviewend := make(chan bool, countOfViewHandlers)
 	// create ChangeManager
 	creg, cevt := changeMgr.ChangeManager(cviewend)
 
+	// chan to stop log a ViewHandler not stopping by itself
+	cend := make(chan bool)
 	// kick of 3 view handlers
 	go log.ViewHandlerLog(creg, cend)
+
 	time.Sleep(13 * time.Millisecond) // wait to have different start time
+
 	go tick.ViewHandlerTick("     v2", 5, 5*time.Millisecond, creg, cevt)
-	countViewHandlerTick := 1        // Bookkeeping of started ViewHandler, ending by themselves
+	countViewHandlerTick := 1 // Bookkeeping of started ViewHandler, ending by themselves
+
 	time.Sleep(3 * time.Millisecond) // wait to have different start time
+
 	go tick.ViewHandlerTick("     v3", 7, 3*time.Millisecond, creg, cevt)
 	countViewHandlerTick++
 
@@ -50,16 +56,16 @@ func main() {
 		select {
 		case <-cviewend:
 			i++
-			fmt.Println("Main received view end")
+			fmt.Println("main received view end")
 		}
 	}
-	fmt.Println("All ViewHandlerTick have ended")
+	fmt.Println("main all ViewHandlerTick have ended")
 
 	// stop ViewHandlerLog
 	cend <- true
 	// wait for ViewHandlerLog end
 	<-cviewend
-	fmt.Println("Main received ViewHandlerLog end")
+	fmt.Println("main received ViewHandlerLog end")
 
-	fmt.Println("Main end", time.Now().Format(TimeMilli))
+	fmt.Println("main end", time.Now().Format(TimeMilli))
 }

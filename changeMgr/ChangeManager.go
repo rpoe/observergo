@@ -3,7 +3,7 @@
 // ChangeManager is the synchronization instance, it defines the interfaces:
 // Notifiable and StateUpdater
 //
-// Ralf Poeppel 2024-08-06 (Never forget Hiroshima)
+// Ralf Poeppel 2024-08-08
 
 package changeMgr
 
